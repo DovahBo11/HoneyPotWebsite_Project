@@ -1,0 +1,23 @@
+﻿body {
+}
+.NagivagionMenu {
+    background-color: white;
+    border-right: 1px solid black;
+    width: 100%;
+}
+.main-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main-menu li {
+    display: inline-block;
+    margin-right: 10px;
+}
+.NagivagionMenu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
