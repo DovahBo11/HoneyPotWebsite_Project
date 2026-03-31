@@ -2,7 +2,7 @@
   <Configurations>
     <BuildType Name="Debug" />
   </Configurations>
-  <Project Path="." Type="Website" DisplayName="HoneyPotWebsite_Project">
+  <Project Path="." Type="Website" DisplayName="HoneyPotWebsite_Project" Id="88917452-025f-412b-ac47-9d7fc1bd9dd8">
     <Properties Name="WebsiteProperties">
       <Property Name="Debug.AspNetCompiler.Debug" Value="&quot;True&quot;" />
       <Property Name="Debug.AspNetCompiler.FixedNames" Value="&quot;false&quot;" />
