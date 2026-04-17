@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Sandwich Shop Order Queue",
+  "type": "object",
+  "properties": {
+    "orders": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Order_id": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "customer_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "customer_email": {
+            "type": "string",
+            "format": "email"
+          },
+          "delivery_type": { "enum": [ "pickup", "delivery" ] },
+          "address": { "type": "string" },
+          "items": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": { "type": "string" },
+                "bread": { "type": "string" },
+                "toppings": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                },
+                "extras": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                },
+                "quantity": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "price": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                }
+              },
+              "required": [ "type", "bread", "quantity", "price" ]
+            }
+          }
+        },
+        "required": [ "Order_id", "customer_name", "delivery_type", "items" ],
+        "dependentRequired": {
+          "address": [ "delivery_type" ]
+        },
+        "if": {
+          "properties": { "delivery_type": { "const": "delivery" } }
+        },
+        "then": {
+          "required": [ "address" ]
+        }
+      }
+    }
+  }
+}
+
