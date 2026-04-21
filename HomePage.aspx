@@ -13,11 +13,11 @@
         <asp:RadioButton ID="VerificationCheck" runat="server" text="please check this to proceed" AutoPostBack="True" OnCheckedChanged="VerificationCheck_CheckedChanged"/>
         <asp:Menu ID="NavigationMenu" renderingmode="Table" CssClass="NagivagionMenu" runat="server" Orientation="Horizontal" BackColor="White">
             <Items>
-                <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/HomePage.aspx" />
+                <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/HomePage.aspx" selectable="false"/>
                 <asp:MenuItem Text="|" Enabled="false" Selectable="false" />
                 <asp:MenuItem Text="Place an Order" Value="Order" NavigateUrl="~/OrderPage.aspx" />
                 <asp:MenuItem Text="|" Enabled="false" Selectable="false" />
-                <asp:MenuItem Text="Contact Us" Value="ContactUs" NavigateUrl="~/ContactUsPage.aspx" />
+                <asp:MenuItem Text="About Us" Value="ContactUs" NavigateUrl="~/AboutUsPage.aspx" />
             </Items>
         </asp:Menu>
         <div id="MainDiv" style="height: 164px; background-color: lightgoldenrodyellow;">

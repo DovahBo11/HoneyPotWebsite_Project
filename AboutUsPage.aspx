@@ -16,22 +16,22 @@
                     <asp:MenuItem Text="|" Enabled="false" Selectable="false" />
                     <asp:MenuItem Text="Place an Order" Value="Order" NavigateUrl="~/OrderPage.aspx" />
                     <asp:MenuItem Text="|" Enabled="false" Selectable="false" />
-                    <asp:MenuItem Text="Contact Us" Value="ContactUs" NavigateUrl="~/ContactUsPage.aspx" />
+                    <asp:MenuItem Text="About Us" Value="ContactUs" NavigateUrl="~/AboutUsPage.aspx" selectable="false"/>
                 </Items>
             </asp:Menu>
-            <asp:Table ID="Table1" runat="server" HorizontalAlign="Center">
+            <asp:Table ID="DevTable" runat="server" HorizontalAlign="Center">
                 <asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle">
                     <asp:TableCell HorizontalAlign="Center" VerticalAlign="Middle">
-                        <asp:ImageButton ID="AndrewViewBtn" runat="server" />
+                        <asp:ImageButton ID="AndrewViewBtn" runat="server" ImageUrl="~/Images/WIN_20260417_11_19_53_Pro.jpg" width="250px" OnClick="DevSelected_OnBtnClick"/>
                         <p>Andrew S. Huguenard</p>
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
         
 
-        <asp:MultiView ID="Dev_MultiView" runat="server">
+        <asp:MultiView ID="Dev_MultiView" runat="server" OnActiveViewChanged="Dev_MultiView_ActiveViewChanged">
             <asp:View ID="Andrew_View" runat="server">
-                <h1>About Andrew</h1>
+                <h1 style="text-align:center">About Andrew</h1>
                 <p>bomp bomp</p>
             </asp:View>
         </asp:MultiView>
