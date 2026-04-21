@@ -1,2 +1,2 @@
-﻿INSERT INTO Orders(DeliveryType, CustomerID) 
-VALUES ('pickup', 1);
+﻿INSERT INTO Breads(BreadName) 
+VALUES ('sourdough'),('wheat'),('white'),('whole');
