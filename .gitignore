@@ -262,6 +262,7 @@ ServiceFabricBackup/
 *.rptproj.bak
 
 # SQL Server files
+#*.mdf #commented out so that database files in source control are not ignored
 *.ldf
 *.ndf
 

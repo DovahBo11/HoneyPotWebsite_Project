@@ -11,4 +11,11 @@ public partial class Orders : System.Web.UI.Page
     {
 
     }
+    protected void BackButton_Click(object sender, EventArgs e)
+    {
+            if (OrdersMultiView.ActiveViewIndex > 0)
+            {
+                OrdersMultiView.ActiveViewIndex = 0;
+            }
+    }
 }

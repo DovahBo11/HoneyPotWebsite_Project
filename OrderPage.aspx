@@ -10,11 +10,12 @@
 <body>
     <form id="OrderForm" runat="server">
         <div>
-            <asp:MultiView ID="MultiView1" runat="server">
+            <asp:MultiView ID="MultiView" runat="server">
                 <asp:View ID="MainOrderMenu" runat="server">
                     <h1 style="text-align:center">Place an Order</h1>
                     <p>To place an order, please contact us at:</p>
                     <p>Email:</p>
+                </asp:View>
             </asp:MultiView>
         </div>
     </form>
