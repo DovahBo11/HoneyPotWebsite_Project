@@ -5,11 +5,27 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
 public partial class AboutUsPage : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["Authenticated"] is true)
+        {
+            // Only add "Orders" if it doesn't already exist
+            bool ordersExists = NavigationMenu.Items.Cast<MenuItem>()
+                .Any(item => item.Text == "Orders" && item.NavigateUrl == "Orders.aspx");
+            if (!ordersExists)
+            {
+                // create a non-interactable separator
+                var separator = new MenuItem("|");
+                separator.Selectable = false;
+                separator.Enabled = false;
+                NavigationMenu.Items.Add(separator);
 
+                NavigationMenu.Items.Add(new MenuItem("Orders", "", "", "~/Records/Orders.aspx"));
+            }
+        }
     }
 
 
