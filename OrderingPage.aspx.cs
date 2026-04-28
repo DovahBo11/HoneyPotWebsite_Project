@@ -24,22 +24,7 @@ public partial class OrderingPage : System.Web.UI.Page
     }
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["Authenticated"] is true)
-        {
-            // Only add "Orders" if it doesn't already exist
-            bool ordersExists = NavigationMenu.Items.Cast<MenuItem>()
-                .Any(item => item.Text == "Orders" && item.NavigateUrl == "Orders.aspx");
-            if (!ordersExists)
-            {
-                // create a non-interactable separator
-                var separator = new MenuItem("|");
-                separator.Selectable = false;
-                separator.Enabled = false;
-                NavigationMenu.Items.Add(separator);
-
-                NavigationMenu.Items.Add(new MenuItem("Orders", "", "", "~/Records/Orders.aspx"));
-            }
-        }
+        
 
         if (Session["CurrentOrder"] != null)
         {
@@ -54,6 +39,22 @@ public partial class OrderingPage : System.Web.UI.Page
 
         if (!IsPostBack)
         {
+            if (Session["Authenticated"] is true)
+            {
+                // Only add "Orders" if it doesn't already exist
+                bool ordersExists = NavigationMenu.Items.Cast<MenuItem>()
+                    .Any(item => item.Text == "Orders" && item.NavigateUrl == "Orders.aspx");
+                if (!ordersExists)
+                {
+                    // create a non-interactable separator
+                    var separator = new MenuItem("|");
+                    separator.Selectable = false;
+                    separator.Enabled = false;
+                    NavigationMenu.Items.Add(separator);
+
+                    NavigationMenu.Items.Add(new MenuItem("Orders", "", "", "~/Records/Orders.aspx"));
+                }
+            }
             CustomerNameTxtBx.Text = currentOrder.CustomerName;
             CustomerEmailTxtBx.Text = currentOrder.Email;
 
@@ -140,6 +141,20 @@ public partial class OrderingPage : System.Web.UI.Page
                     Response.Redirect(Request.RawUrl);
                 }
             }
+        }
+    }
+
+    protected void OrderItemSelectionDropDownMenu_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        // Fix: Compare the ListItem's Text or Value property to the string instead of the ListItem itself
+        if (OrderItemSelectionDropDownMenu.SelectedItem != null &&
+            OrderItemSelectionDropDownMenu.SelectedItem.Text != "choose an OrderItem")
+        {
+            OrderItemSelectionMultiView.ActiveViewIndex = 1;
+        }
+        else
+        {
+            OrderItemSelectionMultiView.ActiveViewIndex = 0; // No selection
         }
     }
 }

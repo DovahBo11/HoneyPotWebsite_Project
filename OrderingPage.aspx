@@ -37,17 +37,31 @@
                     <asp:TextBox ID="AddressTxtBx" runat="server" Visible="False" AutoPostBack="True"></asp:TextBox>
                     <br />
 
-                    <asp:DropDownList ID="OrderItemSelectionDropDownMenu" runat="server">
+                    <asp:DropDownList ID="OrderItemSelectionDropDownMenu" runat="server" AutoPostBack="True" OnSelectedIndexChanged="OrderItemSelectionDropDownMenu_SelectedIndexChanged">
                         <asp:ListItem Value="0">Choose an OrderItem</asp:ListItem>
                     </asp:DropDownList>
                     <asp:Button ID="RmvOrderItemBTN" runat="server" Text="-" OnClick="RmvOrderItemBTN_Click" />
                     <asp:Button ID="AddOrderItemBTN" runat="server" Text="+" OnClick="AddOrderItemBTN_Click" />
-                    <asp:MultiView ID="MultiView1" runat="server">
+                    <asp:MultiView ID="OrderItemSelectionMultiView" runat="server" ActiveViewIndex="0">
                         <asp:View ID="waitView" runat="server">
                             <p>please select an option</p>
                         </asp:View>
                         <asp:View ID="OrderItemSelectionView" runat="server">
-
+                            <p>meats: 
+                                <asp:DropDownList ID="MeatSelectionDropDownMenu" runat="server"></asp:DropDownList>
+                                <asp:Label ID="MeatsLBL" runat="server" Text="Selected:"></asp:Label>
+                                <asp:PlaceHolder ID="MeatsPlaceHolder" runat="server"></asp:PlaceHolder>
+                            </p>
+                            <p>Spreads: 
+                                <asp:DropDownList ID="SpreadSelectionDropDownMenu" runat="server"></asp:DropDownList>
+                                <asp:Label ID="SpreadsLBL" runat="server" Text="Selected:"></asp:Label>
+                                <asp:PlaceHolder ID="SpreadsPlaceHolder" runat="server"></asp:PlaceHolder>
+                            </p>
+                            <p>Toppings: 
+                                <asp:DropDownList ID="ToppingSelectionDropDownMenu" runat="server"></asp:DropDownList>
+                                <asp:Label ID="ToppingsLBL" runat="server" Text="Selected:"></asp:Label>
+                                <asp:PlaceHolder ID="ToppingsPlaceHolder" runat="server"></asp:PlaceHolder>
+                            </p>
                         </asp:View>
                     </asp:MultiView>
                 </asp:View>

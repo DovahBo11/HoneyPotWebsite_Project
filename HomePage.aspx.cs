@@ -53,7 +53,7 @@ public partial class HomePage : System.Web.UI.Page
     {
         Session["Authenticated"] = false;
 
-        // Remove Orders item
+        // Remove Orders nav btn
         var ordersItem = NavigationMenu.Items.Cast<MenuItem>()
             .FirstOrDefault(i => i.Text == "Orders");
 

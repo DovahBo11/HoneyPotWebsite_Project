@@ -9,6 +9,15 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:Menu ID="NavigationMenu" renderingmode="Table" CssClass="NagivagionMenu" runat="server" Orientation="Horizontal" BackColor="White">
+                <Items>
+                    <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/HomePage.aspx"/>
+                    <asp:MenuItem Text="|" Enabled="false" Selectable="false" />
+                    <asp:MenuItem Text="Place an Order" Value="Order" NavigateUrl="~/OrderingPage.aspx" />
+                    <asp:MenuItem Text="|" Enabled="false" Selectable="false" />
+                    <asp:MenuItem Text="About Us" Value="ContactUs" NavigateUrl="~/AboutUsPage.aspx" />
+                </Items>
+            </asp:Menu>
             <asp:MultiView ID="OrdersMultiView" runat="server" ActiveViewIndex="0">
                 <asp:View ID="OrdersView" runat="server">
                     <asp:GridView ID="OrdersGrid" runat="server" DataSourceID="OrdersSqlDataSource" AutoGenerateSelectButton="True" DataKeyNames="OrderID" AllowPaging="True" AutoGenerateColumns="False"  OnSelectedIndexChanged="Get_OrderItems_From_Order">

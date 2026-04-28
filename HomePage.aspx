@@ -24,15 +24,31 @@
             </Items>
         </asp:Menu>
         <div id="MainDiv" style="height: 164px; background-color: lightgoldenrodyellow;">
-            <asp:Panel ID="scrollPanel" runat="server" style="height: 100%; overflow: auto;">
+            <asp:Panel ID="scrollPanel" runat="server" style="height: 200%; overflow: auto;">
+                <asp:Image ID="SandwichImage" runat="server" ImageUrl="~/Images/Sanchwich_image.jpg" />
+                <br />
                 <asp:Button ID="Button1" runat="server" Text="Button" />
+                <br>
                 <br></br>
                 <asp:Button ID="Button2" runat="server" Text="Button" />
+                <br>
                 <br></br>
                 <asp:Button ID="Button3" runat="server" Text="Button" />
+                <br>
                 <br></br>
                 <asp:Button ID="Button4" runat="server" Text="Button" />
+                <br>
                 <br></br>
+                </br>
+                </br>
+                </br>
+                </br>
+            </asp:Panel>
+            <asp:Panel ID="LocationPanel" runat="server">
+                <h2>Address</h2>
+                <p>#### str state country</p>
+                <h2>contact us</h2>
+                <p>(###)-###-####</p>
             </asp:Panel>
         </div>
     </form>
